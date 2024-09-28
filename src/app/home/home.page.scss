@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card{
+  @apply h-44 flex items-center justify-center flex-col;
+
+  ion-thumbnail{
+    @apply rounded-md w-12 h-12 mb-5 flex justify-center items-center;
+
+    ion-icon{
+      @apply text-4xl
+    }
+  }
+
+  ion-label{
+    @apply md:text-xl text-sm font-semibold
+  }
+}

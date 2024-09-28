@@ -1,20 +1,96 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    @if(totalItems > 0){
+      <ion-buttons slot="end">
+        <ion-button color="dark" fill="clear" routerLink="cart">
+          <ion-icon name="cart-outline" slot="icon-only" class="">
+            
+          </ion-icon>
+          <ion-badge color="light" class="absolute top-0 right-0 w-4 h-4 -mt-2 -mr-2">
+            <ion-text color="tertiary">{{totalItems}}</ion-text>
+          </ion-badge>
+        </ion-button>
+      </ion-buttons>
+    }
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-item lines="none" class="">
+    <ion-label class="!text-2xl font-semibold">
+      Hello
+      <p class="mt-2 font-normal">
+        <ion-text color="dark">
+          BarCode Scanner
+        </ion-text>
+      </p>
+    </ion-label>
+    <ion-thumbnail slot="end">
+      <img [src]="'assets/images/profile.png'">
+
+    </ion-thumbnail>
+
+  </ion-item>
+  <ion-list-header>
+    Your Insights
+  </ion-list-header>
+
+  <ion-row class="ion-margin">
+    <ion-col size="6" class="ion-text-center">
+      <ion-card color="light" (click)="scanCode()">
+        <ion-thumbnail [style.background]="'rgba(240, 94, 112, 0.2)'">
+          <ion-icon name="scan-outline">
+          </ion-icon>
+        </ion-thumbnail> 
+        <ion-label>Scan product barcode</ion-label>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6" class="ion-text-center cursor-pointer" routerLink="products">
+      <ion-card color="light" >
+        <ion-thumbnail [style.background]="'rgba(255, 152, 0, 0.2)'">
+          <ion-icon name="list-outline" color="warning">
+          </ion-icon>
+        </ion-thumbnail> 
+        <ion-label>Products</ion-label>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6" class="ion-text-center">
+      <ion-card color="light" >
+        <ion-thumbnail [style.background]="'rgba(76, 175, 80, 0.2)'">
+          <ion-icon name="checkmark-circle" color="success">
+          </ion-icon>
+        </ion-thumbnail> 
+        <ion-label>Transactions</ion-label>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6" class="ion-text-center">
+      <ion-card color="light" >
+        <ion-thumbnail [style.background]="'rgba(94, 115, 240, 0.2)'">
+          <ion-icon name="bag-handle-outline" color>
+          </ion-icon>
+        </ion-thumbnail> 
+        <ion-label>Orders</ion-label>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6" class="ion-text-center">
+      <ion-card color="light" (click)="scanAndPay()">
+        <ion-thumbnail [style.background]="'rgba(94, 115, 240, 0.2)'">
+          <ion-icon name="bag-handle-outline" color="primary">
+          </ion-icon>
+        </ion-thumbnail> 
+        <ion-label>Scan QRCode &amp; Pay</ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-toast [isOpen]="isToastOpen" [message]="toast.message" [color]="toast.color" [position]="" [duration]="3000" (didDismiss)="isToastOpen = false"></ion-toast>
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Blankse</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
+    <strong class="text-blue-600 ">Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </div> -->
 </ion-content>
